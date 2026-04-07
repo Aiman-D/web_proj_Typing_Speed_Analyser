@@ -1,0 +1,175 @@
+/* --- Sleek, Minimalist Theme --- */
+:root {
+    --bg-color: #323437;
+    --main-color: #e2b714;
+    --text-color: #646669;
+    --correct-color: #d1d0c5;
+    --incorrect-color: #ca4754;
+    --font-main: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
+}
+
+/* Force perfect centering */
+#root,
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+}
+
+.typing-test-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Hide the basic title for a cleaner look */
+h1 {
+    display: none;
+}
+
+/* --- Stats Board (Borderless) --- */
+.stats-board {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 1rem;
+}
+
+.stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+
+.label {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-transform: lowercase;
+}
+
+.value {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+/* --- The Text --- */
+.text-display {
+    font-family: var(--font-main);
+    font-size: 1.8rem;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    text-align: left;
+    cursor: default;
+    user-select: none;
+    position: relative;
+}
+
+.char {
+    transition: color 0.1s ease;
+}
+
+/* Untyped text */
+.char.pending {
+    color: var(--text-color);
+}
+
+/* Correctly typed text */
+.char.correct {
+    color: var(--correct-color);
+}
+
+/* Incorrectly typed text */
+.char.incorrect {
+    color: var(--incorrect-color);
+    text-decoration: underline;
+    text-decoration-color: var(--incorrect-color);
+    text-underline-offset: 4px;
+}
+
+/* Smooth Blinking Cursor */
+.char.cursor {
+    border-left: 2px solid var(--main-color);
+    margin-left: -2px;
+    animation: blink 1s infinite step-start;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Bulletproof Hidden Input */
+.hidden-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* --- Restart Button --- */
+.restart-btn {
+    align-self: center;
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.1s ease;
+    margin-top: 2rem;
+}
+
+.restart-btn:hover {
+    color: var(--correct-color);
+}
+
+.restart-btn:active {
+    transform: scale(0.95);
+}
+
+/* --- Results Modal --- */
+.results-modal {
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+    margin-top: 1rem;
+}
+
+.results-modal h2 {
+    color: var(--main-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.results-modal p {
+    color: var(--correct-color);
+    font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
