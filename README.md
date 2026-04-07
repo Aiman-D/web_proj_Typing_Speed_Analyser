@@ -1,16 +1,52 @@
-# React + Vite
+# Typing Speed Analyser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application built with React as part of the Web Programming course (VIT). The app tests and measures typing speed and accuracy in real time, providing instant feedback on performance.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Live WPM tracking** — calculates words per minute as you type using the standard (chars/5)/minutes formula
+- **Accuracy measurement** — tracks correct vs total characters typed in real time
+- **Difficulty modes** — Easy, Medium, and Hard passages with randomised text on every attempt
+- **Configurable timer** — choose between 30, 60, or 120 second sessions
+- **Progress bar** — visual indicator of how far through the passage you are
+- **Score history** — last 4 results displayed after each completed test
+- **Keyboard shortcut** — press `Tab` to instantly restart
+- **Color-coded feedback** — correct characters highlight white, errors highlight red with underline
+- **Responsive design** — works on both desktop and mobile screens
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React (Hooks — useState, useEffect, useRef, useCallback)
+- Vite
+- CSS3
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Clone the repository
+git clone https://github.com/Aiman-D/web_proj_Typing_Speed_Analyser.git
+
+# Navigate into the project
+cd web_proj_Typing_Speed_Analyser
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Project Structure
+
+```
+src/
+├── App.jsx
+├── TypingTest.jsx
+└── TypingTest.css
+```
+
+## Team
+
+Developed by a team of 3 as part of the Web Programming course at VIT.
